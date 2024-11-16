@@ -11,12 +11,12 @@ const Home = () => {
                 <Banner />
             </section>
 
-            <section>
+            <section className='flex flex-col items-center'>
                 <h2 className='text-2xl mb-6 font-bold text-center'>Featured Products</h2>
                 <FeaturedProducts />
             </section>
 
-            <section>
+            <section className='flex flex-col items-center'>
                 <h2 className='text-2xl mb-6 font-bold text-center'>Customer Review's</h2>
                 <UserReviews />
             </section>
