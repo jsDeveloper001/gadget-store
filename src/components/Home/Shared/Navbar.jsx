@@ -1,3 +1,5 @@
+import { Link, NavLink } from "react-router-dom";
+
 const Navbar = () => {
     return (
         <nav>
@@ -21,36 +23,46 @@ const Navbar = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            <li><a>Item 1</a></li>
                             <li>
-                                <a>Parent</a>
-                                <ul className="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
+                                <NavLink to={'/'}>Home</NavLink>
                             </li>
-                            <li><a>Item 3</a></li>
+                            <li>
+                                <NavLink to={'/products'}>Products</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to={'/about'}>About</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to={'/contact'}>Contact us</NavLink>
+                            </li>
+
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
+                    <a className="btn btn-ghost text-xl">Gadget Shop</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><a>Item 1</a></li>
                         <li>
-                            <details>
-                                <summary>Parent</summary>
-                                <ul className="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </details>
+                            <NavLink to={'/'}>Home</NavLink>
                         </li>
-                        <li><a>Item 3</a></li>
+                        <li>
+                            <NavLink to={'/products'}>Products</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={'/about'}>About</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={'/contact'}>Contact us</NavLink>
+                        </li>
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn">Button</a>
+                <div className="navbar-end gap-4">
+                    <Link to={'login'}>
+                        <button className="btn btn-primary">Sign in</button>
+                    </Link>
+                    <Link to={'register'}>
+                        <button className="btn btn-accent">Sign up</button>
+                    </Link>
                 </div>
             </div>
         </nav>
