@@ -1,10 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../Hooks/useAuth";
 
 const Register = () => {
+    const { EmailPasswordRegister, LogOut } = useAuth()
+    const navigateTo = useNavigate()
+
+    const HandleRegister = (e) => {
+        e.preventDefault()
+        const Formdata = e.target
+        const email = Formdata.email.value
+        const Password = Formdata.Password.value
+        const rePassword = Formdata.rePassword.value
+        if (Password == rePassword) {
+            EmailPasswordRegister(email, Password)
+                .then(() => {
+                    LogOut()
+                    navigateTo('/login')
+                    alert("Please Login with email & password")
+                    return Formdata.reset()
+                })
+        }
+        else {
+            alert("password are not same")
+            return Formdata.reset()
+        }
+    }
     return (
         <div className="hero bg-base-200 min-h-screen">
             <div className="card bg-base-100 border-red-300 border min-w-96 shrink-0 shadow-2xl">
-                <form className="card-body">
+                <form className="card-body" onSubmit={HandleRegister}>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
